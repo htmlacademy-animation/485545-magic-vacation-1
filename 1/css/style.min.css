@@ -977,14 +977,6 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden; }
 
-@keyframes introMessage {
-  from {
-    transform: translateY(24px);
-    opacity: 0; }
-  to {
-    transform: translateY(0);
-    opacity: 1; } }
-
 @keyframes sliderText {
   0% {
     transform: translateX(24px);
@@ -1644,6 +1636,10 @@ img {
     .intro__info {
       display: none; } }
 
+.screen.active .intro__message {
+  transform: translateY(0);
+  opacity: 1; }
+
 .intro__message {
   flex: none;
   width: 50.9rem;
@@ -1651,7 +1647,11 @@ img {
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
-  animation: introMessage 0.4s ease-out; }
+  transform: translateY(24px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out; }
   @media (min-width: 2000px) {
     .intro__message {
       width: 509px;
